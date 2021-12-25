@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+
+    <!-- Bootstrap CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Mobile Shop</title>
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(255, 255, 255,0.859);position: fixed;width: 100%;z-index:300;">
+        <div class="container-fluid ml-5">
+          <a class="navbar-brand" href="#">Mobile Shop</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
+                <a class="nav-link active"  style="color: black;" aria-current="page" href="#">HOME</a>
+              </li>
+              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
+                <a class="nav-link"  style="color: black;"  href="#">PAGES</a>
+              </li>
+              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
+                <a class="nav-link"  style="color: black;" href="#">SHOP</a>
+              </li>
+
+              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
+                <a class="nav-link"  style="color: black;" href="#">BLOG</a>
+              </li>
+               
+              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
+                <a class="nav-link link-primary"  style="color: black;" href="#">CONTACT US</a>
+              </li>
+            </ul>
+           
+          </div>
+        </div>
+      </nav>
+
+    <section class="home">
+    <div class="container">
+    <div class="row">
+        <div class="col text-center pt-5 mt-5">
+         <div style="font-size: 80px; color: white;">Ecommerce Mobile</div>
+        <h4 style="color: white;" class="mt-5">Buy your own custom mobile phone, tablet, TV screen or laptop</h4>
+        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" href="Edit.html" role="button">Custom Yours</a>
+    </div>
+    </div>
+    </div>
+    </section>
+
+
+    <section class="image">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="img/macbook.png"  class="img-fluid img1" id="img1" >
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+	<div class="container mt-5">
+		<h1>shop of <span class="red">smartiphones</span></h1>
+		<hr>
+		<div th:if="${error}">Error</div>
+		<div class="row">
+
+			<div class="col">
+
+				<a class="btn btn-success" th:href="@{/products/new}">add product</a>
+				<a class="btn btn-danger" th:href="@{/products/delete}">delete product</a>
+				
+				<table class="table table-dark table-striped mt-3">
+				
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							
+							<th scope="col">Title</th>
+							<th scope="col">description</th>
+							<th scope="col">quantity</th>
+							<th scope="col">price</th>
+							<th scope="col">actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="smartiphone: ${products}">
+							<th scope="row" th:utext="${smartiphone.id}"></th>
+							<td th:utext="${smartiphone.name}"></td>
+							<td th:utext="${smartiphone.description}"></td>
+							<td th:utext="${smartiphone.quantity}"></td>
+					          	<td th:utext="${smartiphone.price}"></td>
+					          	
+					          	
+					          			<td>
+					          			<a class="btn btn-primary text-white" th:href="@{/products/{id}/view(id=${smartiphone.id})}">Show</a>
+								<a class="btn btn-success text-white" th:href="@{/products/{id}/edit(id=${smartiphone.id})}">Edit</a>
+								<a class="btn btn-danger text-white" th:href="@{/products/{id}/delete(id=${smartiphone.id})}">Delete</a>
+                                    
+					          				<a class="btn btn-warning text-white" th:href="@{/shopcarts/{id}/addaddproduct(id=${smartiphone.id})}">buy it</a>
+					          			</td>  		</tr>
+					</tbody>
+				</table>
+
+
+
+			</div>
+
+		</div>
+
+
+
+	</div>
+
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+		crossorigin="anonymous"></script>
+</body>
+</html>

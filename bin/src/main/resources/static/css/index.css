@@ -1,0 +1,48 @@
+.nav-item:hover{
+    border-bottom: 2px solid black;
+    transition:all 0.4s;
+    padding-top: 5re
+    m;
+}
+nav {
+    box-shadow: 2px -2px 0 5px rgba(0, 0, 255, 0.673);
+}
+.nav-item{
+    transition:all .4s;
+}
+.home{
+    background-image: linear-gradient(to right bottom,blue,rgba(110, 187, 110, 0.952));
+    height: 450px;
+
+}
+
+#btn1{
+    padding-right: 95px;
+    padding-left: 95px;
+  
+   
+}
+.card-img-top{
+    max-height: 200px;
+    min-height: 200px;
+}
+
+.img1{
+    transform: translateY(-40px);
+
+}
+.btn-show{
+    background-image: linear-gradient(to right bottom,blue,rgba(110, 187, 110, 0.952));
+    color: white;
+    border:none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.footer{
+    height: 250px;
+    width: 100%;
+    background-color: #222;
+}
